@@ -1,0 +1,114 @@
+{% extends 'base/base.html' %}
+{% block title %}Add Person List{% endblock title %}
+{% block breadcrumb %}Add Person List{% endblock breadcrumb %}
+{#{% block content %}#}
+{#    <div class="row">#}
+{#        <div class="col-md-12">#}
+{#            <div class="card">#}
+{#                <div class="card-header">#}
+{#                    <div class="row">#}
+{#                        <div class="col-md-10">#}
+{#                            <h5>Create Event Category</h5>#}
+{#                        </div>#}
+{#                        <div class="col-md-2">#}
+{#                            <a class="btn btn-success" href="#">Category List</a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="card-body">#}
+{#                    <form method="post" enctype="multipart/form-data">#}
+{#                        {% csrf_token %}#}
+{#                        <div class="input-group mb-3">#}
+{#							<div class="input-group-append">#}
+{#								<span class="input-group-text"><i class="fas fa-user"></i></span>#}
+{#							</div>#}
+{#							Username{{form.username}}#}
+{#						</div>#}
+{#						<div class="input-group mb-2">#}
+{#							<div class="input-group-append">#}
+{#								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>#}
+{#							</div>#}
+{#							{{form.email}}#}
+{#						</div>#}
+{#						<div class="input-group mb-2">#}
+{#							<div class="input-group-append">#}
+{#								<span class="input-group-text"><i class="fas fa-key"></i></span>#}
+{#							</div>#}
+{#							{{form.code}}#}
+{#						</div>#}
+{#						<div class="input-group mb-2">#}
+{#							<div class="input-group-append">#}
+{#								<span class="input-group-text"><i class="fas fa-key"></i></span>#}
+{#							</div>#}
+{#							{{form.catagary}}#}
+{#						</div>#}
+{##}
+{##}
+{##}
+{#                        <button class="btn btn-success ml-2" type="submit">Create</button>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock content %}#}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Add person Category</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-success" href="#">Persons List</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       {{ form.as_p }}
+{#                        <table align="center" border="0" style="width: 20cm">#}
+{#                            <tr><th style="text-align: left">Name*</th></tr>#}
+{#                            <tr><th style="text-align: left"><p style="width: 20cm">{{ form.username }}</p>#}
+{##}
+{#                            </tr>#}
+{#                            <tr><th style="text-align: left">Employee_id*</th></tr>#}
+{#                            <tr><th style="text-align: left"><p style="width: 20cm">{{ form.code }}</p>#}
+{##}
+{#                            </tr>#}
+{#                            <tr><th style="text-align: left">Email-id*</th></tr>#}
+{#                            <tr><th style="text-align: left"><p style="width: 20cm">{{ form.email }}</p>#}
+{##}
+{#                            </tr>#}
+{#                            <tr><th style="text-align: left">Catagery*</th></tr>#}
+{#                            <tr><th style="text-align: left;width: 20cm"><p style="width: 20cm">{{ form.catagary }}</p>#}
+{#                            </th>#}
+{##}
+{#                            </tr>#}
+{#                            <tr><th style="text-align: left">Password*</th></tr>#}
+{#                            <tr><th style="text-align: left;width: 20cm"><p>{{ form.password1 }}</p>#}
+{#                            </th>#}
+{##}
+{#                            </tr>#}
+{#                            <tr><th style="text-align: left">confirm_Password*</th></tr>#}
+{#                            <tr><th style="text-align: left;width: 20cm"><p>{{ form.password2 }}</p>#}
+{#                            </th>#}
+{##}
+{#                            </tr>#}
+{##}
+{#                        </table>#}
+                        <button class="btn btn-success ml-2" type="submit">Create</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for message in messages %}
+					<p id="messages" style="color: orangered">{{message}}</p>
+				{% endfor %}
+
+{% endblock content %}

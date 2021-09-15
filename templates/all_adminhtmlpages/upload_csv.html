@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% block title %}Upload Csv file{% endblock title %}
+{% block breadcrumb %}Upload CSV file{% endblock breadcrumb %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Adding CSV file</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-success" href="{% url 'show_file_list' %}">File List</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" action="{% url 'uploadcsv_file' %}">
+                        {% csrf_token %}
+
+                        <table align="center" border="0" style="width: 20cm">
+                            <tr><th style="text-align: left">File*</th></tr>
+                            <tr><th style="text-align: left"><p style="width: 20cm">
+                              {{ form.as_p }}                           </p>
+
+                            </tr>
+
+
+
+                        </table>
+                        <button class="btn btn-success ml-2" type="submit">Create</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% for message in messages %}
+					<h4 id="messages" style="color: red">{{message}}</h4>
+				{% endfor %}
+
+{% endblock content %}

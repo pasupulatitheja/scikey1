@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% block title %}Csv file list{% endblock title %}
+{% block breadcrumb %}Csv file file{% endblock breadcrumb %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>File List</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-success" href="{% url 'uploadcsv_file' %}">Back</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+
+                            <th>Descption</th>
+                            <th>File</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for foo in form %}
+
+                                <tr role="row">
+                                    <td>{{ foo.description }}</td>
+                                    <td><a href="{{ foo.document.url }}">{{ foo.document }}</a></td>
+                                    <td>{{ foo.uploaded_at }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
